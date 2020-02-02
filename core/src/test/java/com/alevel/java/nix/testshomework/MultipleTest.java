@@ -22,9 +22,9 @@ class MultipleTest {
         arr.add(69);
 
         Multiple m = new Multiple(arr);
-        int [] barr=m.Multiplenums(2);
+        int [] barr=m.multiplenums(2);
         Multiple m1 = new Multiple(arr);
-        int [] barr1= m1.Multiplenums(3);
+        int [] barr1= m1.multiplenums(3);
 
         assertArrayEquals(new int[]{2, 12, 34, 38},barr);
         assertArrayEquals(new int[]{3,12,21,69},barr1);

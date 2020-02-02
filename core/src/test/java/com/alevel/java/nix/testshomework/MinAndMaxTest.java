@@ -11,11 +11,12 @@ class MinAndMaxTest {
     void min() {
 
         MinAndMax m = new MinAndMax(new int[]{1, 2, 3, 4, 5});
-        int r = m.Min();
+        //System.out.println("Min is "+ m.min);
+       int r = m.min();
         MinAndMax m1 = new MinAndMax(new int[]{-10, 100, 2, 39, 4, 5});
-        int r1 = m1.Min();
+        int r1 = m1.min();
         MinAndMax m2 = new MinAndMax(new int[]{666, 100, 2, 399, -44, -58});
-        int r2 = m2.Min();
+        int r2 = m2.min();
 
         assertEquals(1, r);
         assertEquals(-10, r1);
@@ -25,11 +26,11 @@ class MinAndMaxTest {
     @Test
     void max() {
         MinAndMax m = new MinAndMax(new int[]{1, 2, 3, 4, 5});
-        int r = m.Max();
+        int r = m.max();
         MinAndMax m1 = new MinAndMax(new int[]{-10, 100, 2, 39, 4, 5});
-        int r1 = m1.Max();
+        int r1 = m1.max();
         MinAndMax m2 = new MinAndMax(new int[]{666, 100, 2, 399, -44, -58});
-        int r2 = m2.Max();
+        int r2 = m2.max();
 
         assertEquals(5, r);
         assertEquals(100, r1);

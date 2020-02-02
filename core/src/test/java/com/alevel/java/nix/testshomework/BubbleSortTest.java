@@ -11,11 +11,11 @@ class BubbleSortTest {
     @Test
     void sort() {
         BubbleSort b =new BubbleSort(new int[]{1, 2, 3, 4, 5});
-        int [] barr=b.Sort();
+        int [] barr=b.sort();
         BubbleSort b1 = new BubbleSort(new int[]{-10, 100, 2, 39, 4, 5});
-        int [] barr1=b1.Sort();
+        int [] barr1=b1.sort();
         BubbleSort b2 = new BubbleSort(new int[]{666, 100, 2, 399, -44, -58});
-        int [] barr2=b2.Sort();
+        int [] barr2=b2.sort();
 
         assertArrayEquals(new int[]{1, 2, 3, 4, 5},barr);
         assertArrayEquals(new int[]{-10, 2, 4, 5, 39, 100},barr1);

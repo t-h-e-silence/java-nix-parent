@@ -7,9 +7,10 @@ public class MinAndMax {
 
     public MinAndMax(int[] arr) {
         this.arr=arr;
+
     }
 
-    public int Min() {
+    public int min() {
 
         int min = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -21,7 +22,7 @@ public class MinAndMax {
         return min;
     }
 
-    public int Max() {
+    public int max() {
 
         int max = arr[0];
         for (int i = 0; i < arr.length; i++) {

@@ -10,7 +10,7 @@ public class Multiple {
         this.arr = arr;
     }
 
-    public int[] Multiplenums(int k) {
+    public int[] multiplenums(int k) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         for (int j = 0; j < arr.size(); j++) {
             result.add(j, arr.get(j));
