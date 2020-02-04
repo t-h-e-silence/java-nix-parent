@@ -42,7 +42,7 @@ class BuzzFizzTest {
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         BuzzFizz b2= new BuzzFizz();
-        b2.rightLeft();
+        b2.leftRight();
         assertEquals("1\n", output.toString());
     }
 
