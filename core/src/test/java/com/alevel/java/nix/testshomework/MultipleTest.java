@@ -20,14 +20,22 @@ class MultipleTest {
         arr.add(21);
         arr.add(38);
         arr.add(69);
+        ArrayList <Integer> arr1 = new ArrayList<Integer>();
+        arr1.add(24);
+        arr1.add(13);
+        arr1.add(12);
+        arr1.add(30);
+        arr1.add(21);
+        arr1.add(45);
+        arr1.add(9);
 
         Multiple m = new Multiple(arr);
         int [] barr=m.multiplenums(2);
-        Multiple m1 = new Multiple(arr);
+        Multiple m1 = new Multiple(arr1);
         int [] barr1= m1.multiplenums(3);
 
         assertArrayEquals(new int[]{2, 12, 34, 38},barr);
-        assertArrayEquals(new int[]{3,12,21,69},barr1);
+        assertArrayEquals(new int[]{24,12, 30,21,45, 9},barr1);
 
     }
 }
