@@ -51,13 +51,13 @@ class BuzzFizzTest {
         BuzzFizz b = new BuzzFizz(70632);
         b.rightLeft();
 
-        assertEquals("7\n0\nBuzzFizz\nBuzz\nFizz\n", output.toString());
+        assertEquals("Fizz\nBuzz\nBuzzFizz\n0\n7\n", output.toString());
         old = System.out;
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         BuzzFizz b1 = new BuzzFizz(66102490);
         b1.rightLeft();
-        assertEquals("BuzzFizz\nBuzzFizz\n1\n0\nFizz\nFizz\nBuzz\n0\n", output.toString());
+        assertEquals("0\nBuzz\nFizz\nFizz\n0\n1\nBuzzFizz\nBuzzFizz\n", output.toString());
         old = System.out;
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
