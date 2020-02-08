@@ -1,5 +1,6 @@
-package com.alevel.java.nix.massivehomework;
+package com.alevel.java.nix.arrayshomework;
 
+import com.alevel.java.nix.arrayshomework.TeslaStocks;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
