@@ -14,22 +14,31 @@ class TransposeTest {
 
     @Test
     void toTranspose() {
-        PrintStream old;
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
+        int [][]matrix = new int[][]{
+                {0, 3, 6},
+                {1, 4, 7},
+                {2, 5, 8}};
+        Transpose t3 = new Transpose();
+        int [][]exp;
+        exp = t3.toTranspose();
+        assertArrayEquals(matrix, exp);
 
-        Transpose t = new Transpose();
-        t.toTranspose();
-        assertEquals("[[0, 3, 6], [1, 4, 7], [2, 5, 8]]", String.valueOf(output));
+        int [][]matrix1 =new int[][]{{1, 4, 7}, {2, 5, 8}};
         Transpose t1 = new Transpose(new int[][]{{1, 2}, {4, 5}, {7, 8}});
-        output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-        t1.toTranspose();
-        assertEquals("[[1, 4, 7], [2, 5, 8]]",  String.valueOf(output));
+        int [][] exp1= t1.toTranspose();
+        assertArrayEquals(matrix1, exp1);
+
+    /*    assertEquals("[[1, 4, 7], [2, 5, 8]]",  String.valueOf(output));
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         Transpose t2 = new Transpose(new int[][]{{1, 2, 3}, {4, 5, 6}});
         t2.toTranspose();
         assertEquals("[[1, 4], [2, 5], [3, 6]]",  String.valueOf(output));
+        ////////////////////////// */
+
+
+
+
+
         }
     }
