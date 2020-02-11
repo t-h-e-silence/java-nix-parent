@@ -9,9 +9,9 @@ class ZigzagConversionTest {
     @Test
     void convertToZigzag() {
 
-        String actual="pahnaplsiigyir";
+        String expect="pahnaplsiigyir";
         ZigzagConversion z= new ZigzagConversion();
-        String expect= z.convertToZigzag(3);
+        String actual= z.convertToZigzag(3);
         assertEquals(expect, actual);
     }
 }
