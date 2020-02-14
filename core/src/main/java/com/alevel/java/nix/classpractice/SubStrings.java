@@ -19,7 +19,7 @@ public class SubStrings {
         HashSet<Character> subs = new HashSet<Character>();
         int count = 0;
         int curr = 0;
-        char[] str = s.toCharArray();
+        char[] str = s.toCharArray(); //лучше не создавать массив, занимает память
         for (int i = 0; i < str.length; i++) {
             if (subs.contains(str[i]) == true) {
                 count = Math.max(curr, subs.size());
