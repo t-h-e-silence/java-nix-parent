@@ -8,17 +8,20 @@ class SymbolsStrTest {
 
     @Test
     void isGood() {
-        //1
+       
         SymbolsStr s = new SymbolsStr();
         assertEquals(true, s.isGood());
-        //2
+       
         SymbolsStr s1 = new SymbolsStr("({{}})");
         assertEquals(true, s1.isGood());
-        //3
-        SymbolsStr s3 = new SymbolsStr("())))");
-        assertEquals(false, s3.isGood());
-        //4
+        
         SymbolsStr s2 = new SymbolsStr("({{}(}))");
         assertEquals(false, s2.isGood());
+        
+        SymbolsStr s3 = new SymbolsStr("())))");
+        assertEquals(false, s3.isGood());
+        
+        SymbolsStr s4 = new SymbolsStr("({)}");
+        assertEquals(false, s4.isGood());
     }
 }
