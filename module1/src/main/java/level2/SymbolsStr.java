@@ -15,7 +15,6 @@ public class SymbolsStr {
     }
 
     public boolean isGood() {
-        boolean istrue=false;
         ArrayList<Character> open = new ArrayList<>();
         ArrayList<Character> close = new ArrayList<>();
         char[] symbols = str.toCharArray();

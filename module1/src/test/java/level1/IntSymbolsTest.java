@@ -8,8 +8,8 @@ class IntSymbolsTest {
 
     @Test
     void lengthOfUniq() {
-        IntSymbols i1=new IntSymbols();
-        int res=i1.lengthOfUniq();
-        assertEquals(4,res);
+        IntSymbols i1 = new IntSymbols();
+        int res = i1.lengthOfUniq();
+        assertEquals(4, res);
     }
 }

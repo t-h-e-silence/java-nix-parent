@@ -19,7 +19,7 @@ public class IntSymbols {
         HashSet<Integer> uniq = new HashSet<Integer>();
         int curr = 0;
         for (int i = 0; i < arr.length; i++) {
-            if ( uniq.add(arr[i])) {
+            if (uniq.add(arr[i])) {
                 curr++;
             }
         }
