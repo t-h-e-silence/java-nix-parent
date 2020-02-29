@@ -1,38 +1,23 @@
-<configuration debug="true">
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+-<appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    -<encoder>
+    <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+</encoder>
+</appender>
+-<logger name="com.alevel.java.nix.tictachomework" additivity="false" level="INFO">
+    -<appender class="ch.qos.logback.classic.AsyncAppender" name="ASYNC_TIC_TAC_TOE">
+    -<appender class="ch.qos.logback.core.FileAppender" name="TIC-TAC-TOE">
+    <file>log/tic-tac-toe.txt</file>
+    -<encoder>
+    <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+</encoder>
+</appender>
+</appender>
+</logger>
+-<root level="info">
+    <appender-ref ref="STDOUT"/>
 
-    <property name="HOME_LOG" value="log/tic-tac-toe.txt"/>
-
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>
-                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
-            </Pattern>
-        </layout>
-    </appender>
-    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${HOME_LOG}</file>
-
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>10MB</maxFileSize>
-            <totalSizeCap>20GB</totalSizeCap>
-            <maxHistory>60</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%d %p %c{1.} [%t] %m%n</pattern>
-        </encoder>
-    </appender>
-    <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="FILE-ROLLING" />
-        <queueSize>512</queueSize>
-    </appender>
-    <logger name="com.alevel.java.nix.tictachomework" level="debug" additivity="false">
-        <appender-ref ref="ASYNC"/>
-        <appender-ref ref="CONSOLE"/>
-    </logger>
-
-    <root level="error">
-        <appender-ref ref="CONSOLE"/>
-    </root>
+</root>
 
 </configuration>
