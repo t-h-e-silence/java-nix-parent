@@ -6,6 +6,9 @@ import java.util.HashSet;
 public class DistinctAggregator implements Aggregator {
     @Override
     public Object aggregate(Object[] t) {
+        if (t == null || t.length<1) {
+            return 0;
+        }
         HashSet<Object> a = new HashSet<>();
         int count = 0;
         int curr = 0;

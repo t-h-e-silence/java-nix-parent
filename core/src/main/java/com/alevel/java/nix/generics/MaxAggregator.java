@@ -7,6 +7,9 @@ public class MaxAggregator<T extends Comparable<? super T>> implements Aggregato
 
     @Override
     public T aggregate(T[] items) {
+        if(items==null){
+            return null;
+        }
         T max = items[0];
         for (int i = 1; i < items.length; i++) {
             T next = items[i];
