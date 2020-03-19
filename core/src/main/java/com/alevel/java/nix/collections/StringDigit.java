@@ -6,19 +6,22 @@ import java.util.stream.Collectors;
 
 public class StringDigit {
 
-    public String strConvert(ArrayList<String> str){
+    public int strConvert(ArrayList<String> str){
+        int digit=0;
         if(str==null){
-            return null;
+            return digit;
         }
         String builder = new String();
         List<String> numbers= str.stream().map(s -> extractDigits(s)).collect(Collectors.toList());
         for (int i=0;i<numbers.size();i++){
             builder+=numbers.get(i);
         }
-        System.out.println(builder);
-    return builder;
+        if (builder.isEmpty()) {
+            return 0;
+        }
+        digit = Integer.parseInt(builder);
+        return digit;
     }
-
 
     public String extractDigits(String src) {
         StringBuilder builder = new StringBuilder();
@@ -30,4 +33,5 @@ public class StringDigit {
         }
         return builder.toString();
     }
+
 }
