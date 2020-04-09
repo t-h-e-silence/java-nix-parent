@@ -15,8 +15,12 @@ class Task1Test {
         list.add("02042020");
         list.add("02/04/2020");
         list.add("02-04-2020");
+        list.add("28-12-1999");
+        list.add("28121999");
+        list.add("19991228");
         ArrayList exp=new ArrayList<String>();
         exp.add("20200402");
+        exp.add("19991228");
         assertEquals(exp, t.listOfData(list));
 
     }

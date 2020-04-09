@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Task2 {
-    public String unique(Collection<String> list) {
+    public  String unique(Collection<String> list) {
         if(list.isEmpty()){
             return null;
         }
