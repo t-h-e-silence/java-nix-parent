@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Task2 {
@@ -11,12 +8,13 @@ public class Task2 {
         }
         String unique=null;
         Map<String, Long> stringCountMap = list.stream().
-                collect(Collectors.groupingBy(s -> s, HashMap::new, Collectors.counting()));
-        for (String s : stringCountMap.keySet()) {
-            if (stringCountMap.get(s) == 1) {
-                return unique= s; }
+                collect(Collectors.groupingBy(s -> s, LinkedHashMap::new, Collectors.counting()));
+        for (Map.Entry<String, Long> s : stringCountMap.entrySet()) {
+            if (s.getValue()== 1) {
+                return unique= s.getKey(); }
         }
         return unique;
     }
 
 }
+

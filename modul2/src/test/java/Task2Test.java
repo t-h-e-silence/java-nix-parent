@@ -15,12 +15,16 @@ class Task2Test {
         list.add("dog");
         list.add("Tea");
         list.add("cat");
+        list.add("corn");
         list.add("dog");
         assertEquals("Tea", t.unique(list));
         ArrayList<String> l = new ArrayList<>();
         assertEquals(null, t.unique(l));
         list.add("Tea");
+        assertEquals("corn", t.unique(list));
+        list.add("corn");
         assertEquals(null, t.unique(list));
+
 
     }
 }
