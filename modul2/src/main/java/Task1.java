@@ -1,18 +1,37 @@
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Task1 {
-    public List<String> listOfData(Collection<String> list) {
-        if(list.isEmpty()){
-            return null;
-        }
-        return list.stream()
-                .filter(s1 -> s1.matches("[0-9]{4}[0-1][0-9][0-3][0-9]"))
-                .collect(Collectors.toList());
 
+
+    private Date toDate(String s) {
+        List<String> knownPatterns = new ArrayList<String>();
+        knownPatterns.add(new String("yyyy/MM/dd"));
+        knownPatterns.add(new String("yyyy-MM-dd"));
+        knownPatterns.add(new String("dd-MM-yyyy"));
+        knownPatterns.add(new String("dd/MM/yyyy"));
+        for (String pattern : knownPatterns) {
+            try {
+                SimpleDateFormat format = new SimpleDateFormat(pattern);
+                format.setLenient(false);
+                return format.parse(s);
+            } catch (ParseException pe) {
+            }
+        }
+        return null;
     }
+
+    public List<String> formatString(Collection<String> list) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        List<String> formattedStr = new ArrayList<>();
+        for (String s : list) {
+            Date date = toDate(s);
+            formattedStr.add(format.format(date));
+        }
+        return formattedStr;
+    }
+
 }
