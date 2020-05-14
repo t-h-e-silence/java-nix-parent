@@ -10,7 +10,7 @@ public class Operation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer operation_id;
+    private Integer operationId;
     private String name;
     private Double cost;
 
@@ -20,13 +20,13 @@ public class Operation {
     @Embedded
     private Timestamp timeId;
 
-    @OneToMany(fetch =FetchType.EAGER)
+    @ManyToMany(fetch =FetchType.EAGER)
     private List<Category> categories = new ArrayList<>();
 
-    public Operation(BankAccount account, Integer operation_id, Double cost, String name,Timestamp timeId ) {
+    public Operation(BankAccount account, Integer operationId, Double cost, String name,Timestamp timeId ) {
         this.account = account;
         this.cost = cost;
-        this.operation_id = operation_id;
+        this.operationId = operationId;
         this.name = name;
         this.timeId=timeId;
     }
@@ -72,12 +72,12 @@ public class Operation {
         this.name = name;
     }
 
-    public Integer getOperation_id() {
-        return operation_id;
+    public Integer getOperationId() {
+        return operationId;
     }
 
-    public void setOperation_id(Integer operation_id) {
-        this.operation_id = operation_id;
+    public void setOperationId(Integer operation_id) {
+        this.operationId = operationId;
     }
 
     public Double getCost() {
@@ -92,7 +92,7 @@ public class Operation {
     @Override
     public String toString() {
      return "Operation{" +
-                "operation_id=" + operation_id +
+                "operation_id=" + operationId +
                 ", name='" + name + '\'' +
                 ", cost=" + cost +
                 ", account=" + account +
