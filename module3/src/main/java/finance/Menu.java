@@ -1,8 +1,6 @@
 package finance;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UncheckedIOException;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Scanner;
@@ -12,22 +10,29 @@ public class Menu {
 
     }
     private Properties loadProperties() {
-        Properties props = new Properties();
-        try (InputStream input = this.getClass().getClassLoader().getResourceAsStream("src//main//resources//DBtoCSV.properties")) {
-            props.load(input);
+        String PATH_TO_PROPERTIES = "module3/src/main/resources/DBtoCSV.properties";
+        Properties prop = new Properties();
+        try(  FileInputStream fileInputStream = new FileInputStream(PATH_TO_PROPERTIES)) {
+            prop.load(fileInputStream);
+            return prop;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            e.printStackTrace();
         }
-        return props;
+        return prop;
     }
 
-    public void run(){
+        public void run(){
         String choice=null;
         Scanner scanner=new Scanner(System.in);
+        Properties prop=loadProperties();
+        String url = prop.getProperty("url");
         while(true){
             System.out.println("-------Menu-------");
             System.out.println("1) Add new Operation");
             System.out.println("2) Export to CSV");
+            System.out.println("0) Exit");
             choice=scanner.nextLine();
             switch (choice){
                 case "1":
@@ -36,10 +41,12 @@ public class Menu {
                     break;
                 case "2":
                     DBtoCSV export=new DBtoCSV();
-                    Properties prop=loadProperties();
-                    String url = prop.getProperty("url");
-                        export.dbToCSV(prop, url);
+                    System.out.println(" Enter id of desired account: ");
+                    int id = scanner.nextInt();
+                        export.dbToCSV(prop, url, id);
                 break;
+                case "0":
+        System.exit(0);
                 default:
                     break;
             }

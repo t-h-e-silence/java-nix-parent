@@ -14,16 +14,15 @@ public class DBtoCSV {
     public DBtoCSV() {
     }
 
-    void dbToCSV(Properties props, String url) {
-        String csvFilePath = "operations.csv";
+    void dbToCSV(Properties props, String url, int id) {
+        String csvFilePath = "DBtoCSV.csv";
         try (Connection connection = DriverManager.getConnection(url, props)) {
-            int id = 0;
-            String sql = String.format("select operation_id as oi, cost as c, name as n, created_at as ca, account_id as ai from operations where  account_id = %d ", id);
+            logger.info("Start creating .csv file\n");
+            String sql = String.format("select operations.operationid as oi, cost as c, name as n, created_at as ca, account_id as ai from operations where  account_id = %d ", id);
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sql);
             try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(csvFilePath))) {
                 fileWriter.write("account_id, operation_id, cost, name, timestamp");
-
                 while (result.next()) {
                     Integer account_id = result.getInt("ai");
                     Integer operation_id = result.getInt("oi");
@@ -37,23 +36,11 @@ public class DBtoCSV {
                     fileWriter.write(line);
                 }
                 statement.close();
+                logger.info(".csv file successfully created\n");
             }
         } catch (Exception e) {
+            logger.error("Error", e);
             e.printStackTrace();
-            System.out.println("Datababse error:");
-            e.printStackTrace();
-
         }
-    }
-
-
-    private static Properties loadProperties () {
-        Properties props = new Properties();
-        try (InputStream input = DBtoCSV.class.getResourceAsStream("DBtoCSV.properties")) {
-            props.load(input);
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-        return props;
     }
 }
