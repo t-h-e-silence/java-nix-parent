@@ -14,7 +14,7 @@ public class DBtoCSV {
     public DBtoCSV() {
     }
 
-    void dbToCSV(Properties props, String url, int id) {
+   public  void dbToCSV(Properties props, String url, int id) {
         String csvFilePath = "DBtoCSV.csv";
         try (Connection connection = DriverManager.getConnection(url, props)) {
             logger.info("Start creating .csv file\n");

@@ -29,7 +29,7 @@ public class Menu {
         Properties prop=loadProperties();
         String url = prop.getProperty("url");
         while(true){
-            System.out.println("-------Menu-------");
+            System.out.println("-------chande.Menu-------");
             System.out.println("1) Add new Operation");
             System.out.println("2) Export to CSV");
             System.out.println("0) Exit");
