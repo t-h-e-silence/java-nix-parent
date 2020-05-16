@@ -10,9 +10,10 @@ public class Operation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer operation_id;
+    private Integer operationId;
     private String name;
     private Double cost;
+    private boolean profit;
 
     @ManyToOne( cascade = CascadeType.ALL)
     private BankAccount account;
@@ -20,15 +21,15 @@ public class Operation {
     @Embedded
     private Timestamp timeId;
 
-    @OneToMany(fetch =FetchType.EAGER)
+    @ManyToMany(fetch =FetchType.EAGER)
     private List<Category> categories = new ArrayList<>();
 
-    public Operation(BankAccount account, Integer operation_id, Double cost, String name,Timestamp timeId ) {
+    public Operation(boolean profit, BankAccount account, Double cost, String name,Timestamp timeId ) {
         this.account = account;
         this.cost = cost;
-        this.operation_id = operation_id;
         this.name = name;
         this.timeId=timeId;
+        this.profit=profit;
     }
 
     public Operation() {
@@ -72,12 +73,12 @@ public class Operation {
         this.name = name;
     }
 
-    public Integer getOperation_id() {
-        return operation_id;
+    public Integer getOperationId() {
+        return operationId;
     }
 
-    public void setOperation_id(Integer operation_id) {
-        this.operation_id = operation_id;
+    public void setOperationId(Integer operation_id) {
+        this.operationId = operationId;
     }
 
     public Double getCost() {
@@ -88,11 +89,19 @@ public class Operation {
         this.cost = cost;
     }
 
+    public boolean isProfit() {
+        return profit;
+    }
+
+    public void setProfit(boolean profit) {
+        profit = profit;
+    }
+
 
     @Override
     public String toString() {
      return "Operation{" +
-                "operation_id=" + operation_id +
+                "operation_id=" + operationId +
                 ", name='" + name + '\'' +
                 ", cost=" + cost +
                 ", account=" + account +

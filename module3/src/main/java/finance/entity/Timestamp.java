@@ -14,6 +14,7 @@ public class Timestamp implements Serializable {
     public Timestamp() {
     }
 
+
     public Timestamp(Instant createdAt) {
         this.createdAt = createdAt;
     }

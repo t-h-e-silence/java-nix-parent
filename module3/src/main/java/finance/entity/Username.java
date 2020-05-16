@@ -32,6 +32,7 @@ public class Username {
         return Objects.equals(name, ((Username) o).getName());
     }
 
+
     @Override
     public String toString() {
         return "Username{" +

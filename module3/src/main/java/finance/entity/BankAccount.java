@@ -18,7 +18,7 @@ import java.util.Objects;
         private Double balance;
 
         @ManyToOne
-        @JoinColumn(name = "user_id")
+        @JoinColumn(name = "userId")
         private User user;
 
         @OneToMany(fetch =FetchType.EAGER, mappedBy = "account")
@@ -29,7 +29,7 @@ import java.util.Objects;
         }
 
         public List<Operation> getOperations() {
-            return operations;
+            return  operations;
         }
 
         public BankAccount(Integer id, Double balance, User user) {
@@ -80,7 +80,7 @@ import java.util.Objects;
         StringBuilder acc = new StringBuilder(" ");
         for (int i = 0; i <operations.size() ; i++) {
             acc.append(
-                    " id= "+operations.get(i).getOperation_id()+
+                    " id= "+operations.get(i).getOperationId()+
                             "\n name= "+ operations.get(i).getName()+
                             ", \n cost= " + operations.get(i).getCost()+ " "+
                             ", \n category= " + operations.get(i).getCategories().size()+
@@ -99,6 +99,7 @@ import java.util.Objects;
                     getBalance().equals(account.getBalance()) &&
                     getUser().equals(account.getUser());
         }
+
 
         @Override
         public int hashCode() {

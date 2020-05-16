@@ -62,6 +62,7 @@ public class User {
                 getAccounts().equals(user.getAccounts());
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getUsername(), getAccounts());
