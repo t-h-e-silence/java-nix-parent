@@ -12,6 +12,9 @@
         <module>core</module>
         <module>module1</module>
         <module>modul2</module>
+        <module>jdbc</module>
+        <module>mobile-operator</module>
+        <module>jenterprisebox</module>
     </modules>
 
     <packaging>pom</packaging>
