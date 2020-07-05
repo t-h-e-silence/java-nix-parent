@@ -8,4 +8,5 @@ import java.util.List;
 public interface TodoListRepository extends JpaRepository<ToDoList, Integer>
 {
     List<ToDoList> findByDoneIsFalse();
+
 }

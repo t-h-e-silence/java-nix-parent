@@ -29,7 +29,7 @@ import java.util.Objects;
         }
 
         public List<Operation> getOperations() {
-            return operations;
+            return  operations;
         }
 
         public BankAccount(Integer id, Double balance, User user) {
@@ -99,6 +99,7 @@ import java.util.Objects;
                     getBalance().equals(account.getBalance()) &&
                     getUser().equals(account.getUser());
         }
+
 
         @Override
         public int hashCode() {

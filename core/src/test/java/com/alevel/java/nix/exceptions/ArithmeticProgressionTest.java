@@ -16,8 +16,8 @@ class ArithmeticProgressionTest {
                 ProgressionConfigurationException.class,
                 () -> new ArithmeticProgression(1, 2).calculate(0));
         assertEquals("N cant be 0!", thrown1.getMessage());
-        ArithmeticProgression a= new ArithmeticProgression(1, 2);
-        assertEquals(5,a.calculate(3));
+        ArithmeticProgression a = new ArithmeticProgression(1, 2);
+        assertEquals(5, a.calculate(3));
 
     }
 }

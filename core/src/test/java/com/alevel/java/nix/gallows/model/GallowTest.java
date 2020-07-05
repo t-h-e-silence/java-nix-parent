@@ -3,18 +3,13 @@ package com.alevel.java.nix.gallows.model;
 import com.alevel.java.nix.gallows.view.TurnResultView;
 import net.bytebuddy.implementation.bind.annotation.RuntimeType;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.Spy;
+
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
 class GallowTest {
 
    Gallow gallow=new Gallow();
@@ -72,6 +67,24 @@ class GallowTest {
         String view1 = new String(gallow.getBuff() + nl + "У вас осталось 9 попыток");
         TurnResultView res1 = new TurnResultView(TurnResult.YOU_WON, view1);
         assertEquals(String.valueOf(res1), String.valueOf(gallow.view()));
+    }
+    @Test
+    void isWin(){
+        System.out.println(gallow.getBuff());
+        assertEquals(TurnResult.CONTINUE, gallow.isWin());
+        gallow.symbol('о');
+        gallow.symbol('ш');
+        gallow.symbol('к');
+        gallow.symbol('л');
+        gallow.symbol('а');
+        gallow.symbol('д');
+        assertEquals(TurnResult.YOU_WON, gallow.isWin());
+     //   gallow.re;
+        for (int i=0; i<= 10;i++) {
+            gallow.symbol('r');
+        }
+        assertEquals(TurnResult.YOU_LOSE, gallow.isWin());
+
     }
 
     }

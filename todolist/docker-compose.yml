@@ -1,0 +1,48 @@
+version: '3'
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: massages
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+  todolist:
+    image: todolist:0.0.1-SNAPSHOT
+    environment:
+      TODOLIST_DB_HOST: database
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
+volumes:
+  database-data:
+    driver: local
+version: '3'
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: todolist
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+  todolist:
+    image: todolist:0.0.1-SNAPSHOT
+    environment:
+      TODOLIST_DB_HOST: database
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
+volumes:
+  database-data:
+    driver: local

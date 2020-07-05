@@ -13,6 +13,7 @@ public class Operation {
     private Integer operationId;
     private String name;
     private Double cost;
+    private boolean profit;
 
     @ManyToOne( cascade = CascadeType.ALL)
     private BankAccount account;
@@ -23,12 +24,12 @@ public class Operation {
     @ManyToMany(fetch =FetchType.EAGER)
     private List<Category> categories = new ArrayList<>();
 
-    public Operation(BankAccount account, Integer operationId, Double cost, String name,Timestamp timeId ) {
+    public Operation(boolean profit, BankAccount account, Double cost, String name,Timestamp timeId ) {
         this.account = account;
         this.cost = cost;
-        this.operationId = operationId;
         this.name = name;
         this.timeId=timeId;
+        this.profit=profit;
     }
 
     public Operation() {
@@ -86,6 +87,14 @@ public class Operation {
 
     public void setCost(Double cost) {
         this.cost = cost;
+    }
+
+    public boolean isProfit() {
+        return profit;
+    }
+
+    public void setProfit(boolean profit) {
+        profit = profit;
     }
 
 

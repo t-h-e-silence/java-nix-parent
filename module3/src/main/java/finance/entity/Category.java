@@ -12,14 +12,11 @@ public class Category {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Operation> operation;
 
+    private boolean isProfit;
+
     public Category() {
     }
 
-    public Category(List<Operation> operation, Integer categoryId, String categoryName) {
-        this.operation = operation;
-        this.categoryId = categoryId;
-        this.categoryName = categoryName;
-    }
     public Integer getCategoryId() {
         return categoryId;
     }
@@ -27,7 +24,10 @@ public class Category {
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
-    public void addOperation(Operation operation){ this.operation.add(operation); }
+
+    public void addOperation(Operation operation) {
+        this.operation.add(operation);
+    }
 
     private String categoryName;
 
@@ -37,6 +37,14 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<Operation> getOperation() {
+        return operation;
+    }
+
+    public void setOperation(List<Operation> operation) {
+        this.operation = operation;
     }
 
     @Override

@@ -1,13 +1,13 @@
 package task3;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Stream;
 
 import static java.lang.String.format;
+
 public class Task3 {
+    public Edge e;
 
     public void floid(int[][] weights, int n, int from, int to) throws IOException {
         int result;
@@ -36,21 +36,52 @@ public class Task3 {
         printResult("C:\\alevel-java-nix\\modul2\\src\\main\\java\\task3\\output.txt", result);
     }
 
-     void printResult(String fileName, int res) throws IOException {
-       FileWriter fw=new FileWriter(fileName, true);
+    void printResult(String fileName, int res) throws IOException {
+        FileWriter fw = new FileWriter(fileName, true);
         PrintWriter writer = new PrintWriter(fw);
         writer.println(res);
         writer.close();
     }
 
+    public Map<String, List<Edge>> fromFile(String filename) throws FileNotFoundException {//"C:/alevel-java-nix/modul2/src/main/java/task3/input.txt"
+        File file = new File(filename);
+        Scanner sc = new Scanner(file);
+        int index = 0;
+        int n = Integer.parseInt(sc.nextLine());
+        ArrayList city = new ArrayList<String>();
+        Map<String, List<Edge>> map = new LinkedHashMap<>();
+        while (index < n) {
+            String s = sc.nextLine();
+            city.add(s);
+            int size = Integer.parseInt(sc.nextLine());
+            List<Edge> edges = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                String str = sc.nextLine();
+                String[] strs = str.trim().split("\\s");
+                int to = Integer.parseInt(strs[0]);
+                int weight = Integer.parseInt(strs[1]);
+                edges.add(new Edge(city.size(), to, weight));
+            }
+            map.put((String) city.get(index), (List<Edge>) edges);
+            index++;
+        }
+        return map;
+    }
 
     public static void main(String[] args) throws IOException {
-        Task3 city = new Task3();
+        Edge e;
+        Task3 c = new Task3();
+        Map<String, List<Edge>> map = new LinkedHashMap<>();
         int[][] weights = {{1, 2, 1}, {1, 3, 3}, {2, 4, 4}, {2, 3, 1}, {3, 4, 1}};
         int numVertices = 4;
-        city.floid(weights, numVertices, 1, 4);
-        city.floid(weights, numVertices, 2, 4);
+        c.floid(weights, numVertices, 1, 4);
+        c.floid(weights, numVertices, 2, 4);
+
+        map = c.fromFile("C:/alevel-java-nix/modul2/src/main/java/task3/input.txt");
+        //   System.out.println(map.entrySet());
 
     }
 
 }
+
+

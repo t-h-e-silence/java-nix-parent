@@ -22,11 +22,11 @@ class ListToMapTest {
                 moment.plusHours(25),
                 moment.plusDays(2)
         );
-        var byDate = new ListToMap().toMap(ldt);
+        var byDate = new com.alevel.java.nix.DateAPI.ListToMap().toMap(ldt);
         String res = "{1999-12-03=[14:55], 1999-12-04=[13:55, 14:55, 15:55], 1999-12-05=[14:55, 15:55], 1999-12-06=[14:55]}";
         assertEquals(res, String.valueOf(byDate));
         List<LocalDateTime> l = new ArrayList<>();
 
-        assertEquals("{}", String.valueOf(new ListToMap().toMap(l)));
+        assertEquals("{}", String.valueOf(new com.alevel.java.nix.DateAPI.ListToMap().toMap(l)));
     }
 }

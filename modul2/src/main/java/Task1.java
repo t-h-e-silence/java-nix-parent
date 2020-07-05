@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 public class Task1 {
 
-
     private Date toDate(String s) {
         List<String> knownPatterns = new ArrayList<String>();
         knownPatterns.add(new String("yyyy/MM/dd"));
